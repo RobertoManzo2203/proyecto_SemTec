@@ -1,13 +1,13 @@
 import numpy as np
-'''Método encargado de realizar una convolución
-   a una imagen
-   Entrada:
-   Ioriginal - imagen original en forma de matríz
-   kernel -  kernel para barrer la imagen
-   Salida:
-   res - imagen resultante'''
+
 # I original =  matriz original
 def convolucion(Ioriginal, kernel):
+	'''Método encargado de realizar una convolución a una imagen
+	Entrada:
+	Ioriginal - imagen original en forma de matríz
+	kernel -  kernel para barrer la imagen
+	Salida:
+	res - imagen resultante'''
 	#fr - filas, cr - columnas
 	fr = len(Ioriginal)-(len(kernel)-1)
 	cr = len(Ioriginal[0])-(len(kernel[0])-1)
