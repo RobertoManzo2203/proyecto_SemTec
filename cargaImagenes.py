@@ -30,14 +30,16 @@ def convolucion(Ioriginal, kernel):
                 res[i][j]=255
 
     return res
-kernel = np.array([[-1, 0, 1],[-1, 0, 1],[-1, 0, 1]])
+
 nombreimagen = input('Nombre de la imagen')
 IRGB = cv2.imread(nombreimagen)
 
 IGS=cv2.cvtColor(IRGB,cv2.COLOR_BGR2GRAY)
-IGS = convolucion(IGS, kernel)
+k1 = 1/256*np.array([[1,4,6,4,1],[4,16,24,16,4],[6,24,36,24,6],[4,16,24,16,4],[1,4,6,2,1]]) 
+IGS = convolucion(IGS, k1)
 IGS = maxPooling(IGS)
-IGS = convolucion(IGS, kernel)
+k2 = np.array([[2,2,4,2,2],[1,1,2,1,1],[0,0,0,0,0],[-1,-1,-2,-1,-1],[-2,-2,-4,-2,-2]]) 
+IGS = convolucion(IGS, k2)
 IGS = maxPooling(IGS)
 nuevonombre = nombreimagen[0:nombreimagen.find(".")]+'b'+nombreimagen[nombreimagen.find("."):]
 cv2.imwrite(nuevonombre, IGS)
