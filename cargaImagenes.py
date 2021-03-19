@@ -31,14 +31,14 @@ def convolucion(Ioriginal, kernel):
 
     return res
 kernel = np.array([[-1, 0, 1],[-1, 0, 1],[-1, 0, 1]])
-nombreimagen = input("inserta el nombre de la imagen sin extension ")
-IRGB = cv2.imread(nombreimagen + '.jpg')
+nombreimagen = input("inserta el nombre de la imagen ")
+IRGB = cv2.imread(nombreimagen)
 
 IGS=cv2.cvtColor(IRGB,cv2.COLOR_BGR2GRAY)
 IGS = convolucion(IGS, kernel)
 IGS = maxPooling(IGS)
 IGS = convolucion(IGS, kernel)
 IGS = maxPooling(IGS)
-nuevonombre = nombreimagen + 'B.jpg'
+nuevonombre = nombreimagen[0:nombreimagen.find(".")]+'b'+nombreimagen[nombreimagen.find("."):]
 cv2.imwrite(nuevonombre, IGS)
 
