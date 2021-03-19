@@ -30,8 +30,8 @@ def convolucion(Ioriginal,Kernel):
                 Resultado[i][j]=255
     return Resultado
 #imagenes
-K=[[-1,0,1],[-1,0,1],[-1,0,1]] #kernel
-I=[[2,0,1,1,1],[3,0,0,0,2],[1,1,1,1,1],[3,1,1,1,2],[1,1,1,1,1]] #prototipo de imagen
+K=[[-1,0,1],[-1,0,1],[-1,0,1]]
+I=[[2,0,1,1,1],[3,0,0,0,2],[1,1,1,1,1],[3,1,1,1,2],[1,1,1,1,1]]
 
 #imagenes a numpy arrays
 In=np.array(I)
@@ -45,19 +45,4 @@ print(IGS.shape)
 R=convolucion(IGS,Kn)
 print(R)
 print(R.shape)
-cv2.imwrite('004C.jpg',R)			#columnas, kernel
-				for n in range(len(kernel[0])):
-					suma += kernel[m][n] * Ioriginal[m+i][n+j]
-			res[i][j] = suma
-	return res
-
-K = [[-1, 0, 1], [-1, 0, 1], [-1, 0, 1]] #kernel
-I = [[2, 0, 1, 1, 1], [3, 0, 0, 0, 2], [1, 1, 1, 1, 1], [3, 1, 1, 1, 2], [1, 1, 1, 1, 1]] #prototipo de imagen
-
-#conversión de arrays a numpy arrays
-In = np.array(I)
-Kn = np.array(K)
-
-#llamado de la función e impresion del resultado
-R = convolucion(In, Kn)
-print(R)
+cv2.imwrite('004C.jpg',R)
