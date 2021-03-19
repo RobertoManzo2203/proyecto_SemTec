@@ -31,7 +31,7 @@ def convolucion(Ioriginal, kernel):
 
     return res
 kernel = np.array([[-1, 0, 1],[-1, 0, 1],[-1, 0, 1]])
-nombreimagen = input("inserta el nombre de la imagen ")
+nombreimagen = RobertoR2D2.jpg
 IRGB = cv2.imread(nombreimagen)
 
 IGS=cv2.cvtColor(IRGB,cv2.COLOR_BGR2GRAY)
